@@ -31,17 +31,12 @@ public class ImageUtil {
      */
     public static File getImageFile(String url) {
         String imageName = getImageName(url);
-        String baseDir = GlobalConfig.getImageConfig().getBaseDir();
-        String folderName = GlobalConfig.getImageConfig().getFolderName();
+        String downloadDir = GlobalConfig.getImageConfig().getDownloadDir();
 
-        File folder;
-        if (folderName == null || folderName.length() == 0) {
-            Log.d("folderName is null...");
-            folder = new File(baseDir);
-        } else {
-            folder = new File(baseDir, folderName);
+        File folder = new File(downloadDir);
+        if (!folder.exists()) {
+            folder.mkdirs();
         }
-        folder.mkdirs();
         return new File(folder, imageName);
     }
 }

@@ -7,14 +7,13 @@ package com.sadcoder333.config;
  **/
 public interface ImageConfig {
 
-    String getBaseDir();
+    int DEFAULT_TIMEOUT = 60;
+
+    String getDownloadDir();
 
     default boolean sortImageByOrder() {
         return false;
     }
-
-    String getFolderName();
-
 
     int timeout();
 

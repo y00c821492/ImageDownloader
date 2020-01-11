@@ -1,6 +1,5 @@
 package com.sadcoder333.config;
 
-import java.util.Objects;
 
 /**
  * desc: 默认配置参数
@@ -8,28 +7,21 @@ import java.util.Objects;
  * date: 2020/1/10
  **/
 public class DefaultImageConfig implements ImageConfig {
-    private String baseDir;
-    private String folder;
+    private String downloadDir;
     private int timeout;
 
-    DefaultImageConfig(String baseDir, String folder, int timeout) {
-        this.baseDir = baseDir;
-        this.folder = folder;
+    DefaultImageConfig(String downloadDir, int timeout) {
+        this.downloadDir = downloadDir;
         if (timeout <= 0) {
-            throw new IllegalArgumentException("you must set a value for timeout");
+            timeout = DEFAULT_TIMEOUT;
         }
         this.timeout = timeout;
 
     }
 
     @Override
-    public String getBaseDir() {
-        return baseDir;
-    }
-
-    @Override
-    public String getFolderName() {
-        return folder;
+    public String getDownloadDir() {
+        return downloadDir;
     }
 
     @Override
@@ -39,17 +31,11 @@ public class DefaultImageConfig implements ImageConfig {
 
 
     public static class Builder {
-        String baseDir;
-        String folder;
+        String downloadDir;
         int timeout;
 
-        public Builder baseDir(String baseDir) {
-            this.baseDir = baseDir;
-            return this;
-        }
-
-        public Builder folder(String folder) {
-            this.folder = folder;
+        public Builder downloadDir(String downloadDir) {
+            this.downloadDir = downloadDir;
             return this;
         }
 
@@ -59,7 +45,7 @@ public class DefaultImageConfig implements ImageConfig {
         }
 
         public DefaultImageConfig create() {
-            return new DefaultImageConfig(baseDir, folder, timeout);
+            return new DefaultImageConfig(downloadDir, timeout);
         }
     }
 }

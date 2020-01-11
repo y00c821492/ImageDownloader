@@ -19,11 +19,11 @@ public class DownloadPictureRunnable implements Runnable {
     }
 
     public void run() {
-        Log.d("start to download image url: " + imageUrl);
+        Log.d("start to downloadImagesByUrl image url: " + imageUrl);
         try {
             HttpEngine.downloadImage(imageUrl, new ImageCallback(imageUrl));
         } catch (Exception e) {
-            Log.d("fail to download image url: " + imageUrl);
+            Log.d("fail to downloadImagesByUrl image url: " + imageUrl);
         }
     }
 }

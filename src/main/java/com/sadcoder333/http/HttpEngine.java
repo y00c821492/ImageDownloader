@@ -17,14 +17,11 @@ public class HttpEngine {
 
     }
 
-    private static final int DEFAULT_TIME_OUT = 60;
-
     private static final OkHttpClient okHttpClient = new OkHttpClient.Builder()
-            .readTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
-            .writeTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
-            .connectTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
+            .readTimeout(GlobalConfig.getImageConfig().timeout(), TimeUnit.SECONDS)
+            .writeTimeout(GlobalConfig.getImageConfig().timeout(), TimeUnit.SECONDS)
+            .connectTimeout(GlobalConfig.getImageConfig().timeout(), TimeUnit.SECONDS)
             .build();
-
 
     /**
      * 下载图片

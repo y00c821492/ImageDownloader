@@ -34,7 +34,7 @@ public class ImageCallback implements Callback {
         if (body != null) {
             byte[] bytes = body.bytes();
             if (bytes.length == 0) {
-                Log.d("failed to download image for " + url);
+                Log.d("failed to downloadImagesByUrl image for " + url);
                 return;
             }
             File image = ImageUtil.getImageFile(url);
