@@ -38,14 +38,28 @@ ImageDownloadManager.getInstance(imageConfig).downloadImagesByUrl(imageUrls);
 
 ### 方法二：java命令行执行
 
-- 下载html网页上的图片
+在java命令行执行jar包需要两个参数：
+- 第一个参数为图片保存路径，文件路径请自己设置
+- 第二个参数为txt文件名称
+
+> **txt文件名只能是`htmls.txt`或者`images.txt`**
+
+#### 下载html网页上的图片
+
+在ImageDownloader-1.0.jar的所在目录下新建`htmls.txt`，文件内容每行记录一个html网页地址。
+
+然后执行以下命令:
 ```
-java -jar ImageDownloader-1.0.jar 0 D:/download_images http://xxxx.html
+java -jar ImageDownloader-1.0.jar D:/download_images htmls.txt
 ```
 
-- 根据图片链接地址批量下载
+#### 根据图片链接地址批量下载
+
+在ImageDownloader-1.0.jar的所在目录下新建`images.txt`，文件内容每行记录一个图片链接地址。
+
+然后执行以下命令:
 ```
-java -jar ImageDownloader-1.0.jar 1 D:/download_images http://domain/abc/123456.jpg,http://domain/abc/678910.jpg
+java -jar ImageDownloader-1.0.jar D:/download_images images.txt
 ```
 
 
