@@ -33,7 +33,7 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
         if (args == null || args.length != 2) {
-            throw new IllegalArgumentException("please pass one argument at least! ");
+            throw new IllegalArgumentException("Please pass two arguments at least! ");
         }
 
         String downloadDir = args[0];
