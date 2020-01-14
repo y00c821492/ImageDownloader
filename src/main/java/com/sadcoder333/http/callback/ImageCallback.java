@@ -38,9 +38,7 @@ public class ImageCallback implements Callback {
                 return;
             }
             File image = ImageUtil.getImageFile(url);
-            if (!image.exists()) {
-                FileUtils.writeByteArrayToFile(image, bytes);
-            }
+            FileUtils.writeByteArrayToFile(image, bytes);
         }
     }
 }

@@ -3,6 +3,7 @@ package com.sadcoder333.util;
 import com.sadcoder333.config.GlobalConfig;
 
 import java.io.File;
+import java.util.UUID;
 
 /**
  * desc: 生成图片文件路径的工具类
@@ -37,6 +38,10 @@ public class ImageUtil {
         if (!folder.exists()) {
             folder.mkdirs();
         }
-        return new File(folder, imageName);
+        File imageFile = new File(folder, imageName);
+        if (!imageFile.exists()) {
+            return imageFile;
+        }
+        return new File(folder, UUID.randomUUID().toString() + ".jpg");
     }
 }

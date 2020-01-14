@@ -46,7 +46,7 @@ public class Main {
             } catch (IOException e) {
                 throw new IllegalArgumentException(e);
             }
-            if (htmlUrls == null || htmlUrls.isEmpty()) {
+            if (htmlUrls.isEmpty()) {
                 throw new IllegalArgumentException("can not find htmls from " + DownloadConstants.FILE_HTMLS);
             }
 
